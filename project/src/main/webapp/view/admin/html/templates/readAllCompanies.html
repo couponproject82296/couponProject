@@ -1,0 +1,25 @@
+﻿<img src="images/Admn3ReadAllCompanies.png" class="img">
+<br />
+<table border=1 class="table table-hover tableDesign">
+	<tr>
+		<th ng-click="rac.setOrder('id')">Id
+        <span ng-hide="rac.goUp" >▼</span>
+        <span ng-show="rac.goUp">▲</span>
+        </th>
+		<th ng-click="rac.setOrder('compName')">Name
+            <span ng-hide="rac.goUp">▼</span>
+            <span ng-show="rac.goUp">▲</span>
+        </th>
+		<th>Password</th>
+		<th ng-click="rac.setOrder('email')">Email
+            <span ng-hide="rac.goUp">▼</span>
+            <span ng-show="rac.goUp">▲</span>
+        </th>
+	</tr>
+	<tr ng-repeat="c in rac.companies | orderBy : rac.order : rac.goUp  ">
+		<td>{{c.id}}</td>
+		<td>{{c.compName}}</td>
+		<td>{{c.password}}</td>
+		<td>{{c.email}}</td>
+	</tr>
+</table>

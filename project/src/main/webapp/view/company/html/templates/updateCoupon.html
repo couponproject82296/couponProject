@@ -1,0 +1,77 @@
+﻿<img src="images/Cmpn8UpdateCoupon.png" class="img">
+<br />
+<div class="tableDesign">
+<form id="my_form">
+	<table border=1  class="table table-hover active">
+        <tr>
+            <th ng-click="uc.setOrder('id')">
+                Id
+                <span ng-hide="uc.goUp">▼</span>
+                <span ng-show="uc.goUp">▲</span>
+            </th>
+            <th ng-click="uc.setOrder('title')">
+                Title
+                <span ng-hide="uc.goUp">▼</span>
+                <span ng-show="uc.goUp">▲</span>
+            </th>
+            <th ng-click="uc.setOrder('startDate')">
+                Start Date
+                <span ng-hide="uc.goUp">▼</span>
+                <span ng-show="uc.goUp">▲</span>
+            </th>
+            <th ng-click="uc.setOrder('endDate')">
+                End Date
+                <span ng-hide="uc.goUp">▼</span>
+                <span ng-show="uc.goUp">▲</span>
+            </th>
+            <th ng-click="uc.setOrder('amount')">
+                Amount
+                <span ng-hide="uc.goUp">▼</span>
+                <span ng-show="uc.goUp">▲</span>
+            </th>
+            <th ng-click="uc.setOrder('type')">
+                Type
+                <span ng-hide="uc.goUp">▼</span>
+                <span ng-show="uc.goUp">▲</span>
+            </th>
+            <th>Message</th>
+            <th ng-click="uc.setOrder('price')">
+                Price
+                <span ng-hide="uc.goUp">▼</span>
+                <span ng-show="uc.goUp">▲</span>
+            </th>
+            <th>Image</th>
+        </tr>
+		<tr ng-repeat="c in uc.coupons | orderBy : uc.order : uc.goUp">
+			<td ng-disabled="editing"><a>{{c.id}}</a></td>
+			<td ng-disabled="editing"><a>{{c.title}}</a></td>
+			<td ng-disabled="editing"><a>{{c.startDate}}</a></td>
+			<td ng-disabled="editing">
+				<a ng-hide="c.edit">{{c.endDate}}</a>
+				<a><input ng-class="{ 'card-outline-danger': !c.endDate}" min="{{c.startDate | date:'yyyy-MM-dd'}}"
+				 ng-show="c.edit" form="my_form" type="date" ng-model="c.endDate" /></a>
+			</td>
+			<td ng-disabled="editing"><a>{{c.amount}}</a></td>
+			<td ng-disabled="editing"><a>{{c.type}}</a></td>
+			<td ng-disabled="editing"><a>{{c.message}}</a></td>
+			<td ng-disabled="editing">
+				<a ng-hide="c.edit">{{c.price}}</a>
+				<a><input ng-class="{ 'card-outline-danger': !c.price}" type="number" min="1" ng-show="c.edit" form="my_form"  ng-model="c.price" /></a>
+			</td>
+			<td ng-disabled="editing"><a><img data-ng-src="{{c.image}}" width="150px" height="120px"/></a></td>
+		
+			<td>
+				<button  class="btn btn-warning" data-ng-disabled="editing" ng-hide="c.edit" form="my_form" ng-click="editEntry(c); c.edit = !c.edit" >Edit</button>
+				<button ng-show="c.edit" form="my_form" class="btn btn-success"   data-ng-click="uc.refreshAfterCanceling();editEntry(c);c.edit = !c.edit; editing?!editing:false">Cancel</button>
+				<button  class="btn btn-info" ng-show="c.edit" form="my_form" data-ng-click="editEntry(c); uc.pressUpdateToSave($index); c.edit = !c.edit; editing?!editing:false"
+				ng-disabled="!c.endDate  || !c.price">Update</button>
+			</td>
+		</tr>
+	</table>
+</form>
+</div>
+<div ng-show="uc.failure" class="sh-error-alert">
+	<div class="popup-content">
+		<div class="popup-text"><b>&#9888; Error:  </b>{{uc.error}}</div>
+	</div>
+</div>

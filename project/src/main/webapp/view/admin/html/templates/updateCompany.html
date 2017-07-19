@@ -1,0 +1,46 @@
+﻿<img src="images/Admn4UpdateCompany.png" class="img">
+<br />
+<form id="my_form">
+	<table border=1  class="table table-hover tableDesign">
+		<tr>
+			<th ng-click="uc.setOrder('id')">Id
+                <span ng-hide="uc.goUp">▼</span>
+                <span ng-show="uc.goUp">▲</span>
+            </th>
+			<th ng-click="uc.setOrder('compName')">Name
+                <span ng-hide="uc.goUp">▼</span>
+                <span ng-show="uc.goUp">▲</span>
+            </th>
+			<th>Password</th>
+			<th ng-click="uc.setOrder('email')">Email
+                <span ng-hide="uc.goUp">▼</span>
+                <span ng-show="uc.goUp">▲</span>
+            </th>
+		</tr>
+		<tr ng-repeat="c in uc.companies  | orderBy : uc.order : uc.goUp">
+			<td ng-disabled="editing"><a>{{c.id}}</a></td>
+			<td  ng-disabled="editing"><a>{{c.compName}}</a></td>
+			<td  ng-disabled="editing">
+				<a ng-hide="c.edit">{{c.password}}</a>
+				<a><input  ng-class="{'card-outline-danger': !c.password  }" name="password" ng-show="c.edit"  type="text" ng-model="c.password" required /></a>
+			</td>
+			<td  ng-disabled="editing">
+				<a ng-hide="c.edit">{{c.email}}</a>
+				<a><input ng-pattern="emailRegExp" ng-class="{ 'card-outline-danger': !c.email}" name="email" ng-show="c.edit"  type="email" ng-model="c.email"  required/></a>
+			</td>
+			<td >
+				<button ng-hide="c.edit" form="my_form" data-ng-disabled="editing"  class="btn btn-warning" data-ng-click="editEntry(c); c.edit = !c.edit">Edit</button>
+				<button ng-show="c.edit" form="my_form" class="btn btn-success"   data-ng-click="uc.refreshAfterCanceling();editEntry(c);c.edit = !c.edit; editing?!editing:false">Cancel</button>
+				<button ng-show="c.edit" form="my_form" class="btn btn-info"   
+				data-ng-click="editEntry(c); uc.pressUpdateToSave($index); c.edit = !c.edit; editing?!editing:false"
+				ng-disabled=" !c.password  || !c.email"
+				>Update</button>
+			</td>
+		</tr>
+	</table>
+</form>
+<div ng-show="uc.failure" class="sh-error-alert">
+	<div class="popup-content">
+		<div class="popup-text"><b>&#9888; Error:  </b>{{uc.error}}</div>
+	</div>
+</div>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<script src="../scripts/jquery-3.2.1.min.js"></script>
+	<script src="../scripts/bootstrap.min.js"></script>
+	<link href="../css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="../css/bootstrap-reboot.min.css" rel="stylesheet" />
+    <link href="../css/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="../css/ngAnimate.css" rel="stylesheet" />  
+    <link href="../css/exceptionMessage.css" rel="stylesheet" /> 
+    <link href="../css/admin.css" rel="stylesheet" /> 
+	<script src="../scripts/angular.js"></script>
+    <script src="../scripts/angular-animate.min.js"></script>
+	<script src="../scripts/angular-ui-router.js"></script>
+	<link href="../css/angular-confirm.min.css" rel="stylesheet" />
+	<script src="../scripts/angular-confirm.min.js"></script>
+	<script src="../scripts/bootstrap.js"></script>
+	<script src="../scripts/services/mainAdmin.srvc.js"></script>
+	<script src="../scripts/services/javaBeansCtors.srvc.js"></script>
+	<script src="../scripts/adminRoute.config.js"></script>
+	<script src="../scripts/controllers/createCompany.ctrl.js"></script>
+	<script src="../scripts/controllers/readCompany.ctrl.js"></script>
+	<script src="../scripts/controllers/readAllCompanies.ctrl.js"></script>
+	<script src="../scripts/controllers/updateCompany.ctrl.js"></script>
+	<script src="../scripts/controllers/deleteCompany.ctrl.js"></script>
+	<script src="../scripts/controllers/createCustomer.ctrl.js"></script>
+	<script src="../scripts/controllers/readCustomer.ctrl.js"></script>
+	<script src="../scripts/controllers/readAllCustomers.ctrl.js"></script>
+	<script src="../scripts/controllers/updateCustomer.ctrl.js"></script>
+	<script src="../scripts/controllers/deleteCustomer.ctrl.js"></script>
+	<title>Xcoupon</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+	<div class="w3-sidebar w3-black w3-bar-block" style="width: 17%">
+		<img src="images/logo.jpg" class="w3-round" alt="logo" style="margin-top: 5%; margin-left: 10%">
+		<h3 class="w3-bar-item">Menu</h3>
+		<a href="#/createCompany" class="w3-bar-item w3-button">Create Company</a>
+		<a href="#/readCompany" class="w3-bar-item w3-button">Read Company</a>
+		<a href="#/readAllCompanies" class="w3-bar-item w3-button">Read All Companies</a>
+		<a href="#/updateCompany" class="w3-bar-item w3-button">Update Company</a>
+		<a href="#/deleteCompany" class="w3-bar-item w3-button">Delete Company</a>
+		<a href="#/createCustomer" class="w3-bar-item w3-button">Create Customer</a>
+		<a href="#/readCustomer" class="w3-bar-item w3-button">Read Customer</a>
+		<a href="#/readAllCustomers" class="w3-bar-item w3-button">Read All Customers</a>
+		<a href="#/updateCustomer" class="w3-bar-item w3-button">Update Customer</a>
+		<a href="#/deleteCustomer" class="w3-bar-item w3-button">Delete Customer</a>
+		<a href="http://localhost:8080/project/LogoutServlet" class="w3-bar-item w3-button">Switch user/Logout</a>
+	</div>
+	<div style="margin-left: 17%">
+		<div class="w3-container w3-black">
+			<h1>Welcome Administrator</h1>
+		</div>
+		<main ui-view ></main>
+	</div>
+</body>
+</html>

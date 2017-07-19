@@ -1,0 +1,92 @@
+﻿<img src="images/Cstmr4ReadAllPurchasedCouponsByType.png" class="img">
+<br />
+<div id="readCouponsByType">
+	<form name="myForm">
+		<p class="marginLeft2">
+			<select name="myInput" class="w3-input w3-border w3-round" type="text" id="typeInput" ng-change="rapct.giveType()" ng-model="rapct.type" required>
+				<option>ART</option>
+				<option>BABY_SUPPLY</option>
+				<option>BEVERAGES</option>
+				<option>BIKES</option>
+				<option>BOOKS</option>
+				<option>CAMPING</option>
+				<option>CARS</option>
+				<option>CHILD_ACTIVITIES</option>
+				<option>CLOTHS</option>
+				<option>ELECTRICITY</option>
+				<option>ELECTRONICS</option>
+				<option>ENTERTAINMENT</option>
+				<option>FOOD</option>
+				<option>FURNITURE</option>
+				<option>HEALTH</option>
+				<option>HOMEWARE</option>
+				<option>HOTELS</option>
+				<option>JEWELRY</option>
+				<option>MAKEUP</option>
+				<option>MUSEUMS</option>
+				<option>MUSIC</option>
+				<option>NATURE</option>
+				<option>PHARMACEUTICALS</option>
+				<option>RESTAURANTS</option>
+				<option>SHOES</option>
+				<option>SPORTS</option>
+				<option>TECHNOLOGY</option>
+				<option>THEATRE</option>
+				<option>TRAVELING</option>
+			</select>
+		</p>
+		<p ng-hide="myForm.myInput.$valid" >
+			<font face="Trocchi" class="enter">Please enter the coupon type</font>
+		</p>
+	</form>
+</div>
+<div class="tableDesign">
+<table border=1  class="table table-hover">
+    <tr>
+        <th ng-click="rapct.setOrder('id')">
+            Id
+            <span ng-hide="rapct.goUp">▼</span>
+            <span ng-show="rapct.goUp">▲</span>
+        </th>
+        <th ng-click="rapct.setOrder('title')">
+            Title
+            <span ng-hide="rapct.goUp">▼</span>
+            <span ng-show="rapct.goUp">▲</span>
+        </th>
+        <th ng-click="rapct.setOrder('startDate')">
+            Start Date
+            <span ng-hide="rapct.goUp">▼</span>
+            <span ng-show="rapct.goUp">▲</span>
+        </th>
+        <th ng-click="rapct.setOrder('endDate')">
+            End Date
+            <span ng-hide="rapct.goUp">▼</span>
+            <span ng-show="rapct.goUp">▲</span>
+        </th>
+        <th ng-click="rapct.setOrder('amount')">
+            Amount
+            <span ng-hide="rapct.goUp">▼</span>
+            <span ng-show="rapct.goUp">▲</span>
+        </th>
+        <th>Type</th>
+        <th>Message</th>
+        <th ng-click="rapct.setOrder('price')">
+            Price
+            <span ng-hide="rapct.goUp">▼</span>
+            <span ng-show="rapct.goUp">▲</span>
+        </th>
+        <th>Image</th>
+    </tr>
+	<tr ng-repeat="c in rapct.couponsType  | orderBy : rapct.order : rapct.goUp"">
+		<td>{{c.id}}</td>
+		<td>{{c.title}}</td>
+		<td>{{c.startDate}}</td>
+		<td>{{c.endDate}}</td>
+		<td>{{c.amount}}</td>
+		<td>{{c.type}}</td>
+		<td>{{c.message}}</td>
+		<td>{{c.price}}</td>
+		<td><img data-ng-src="{{c.image}}" width="150px" height="120px"/></td>
+	</tr>
+</table>
+</div>

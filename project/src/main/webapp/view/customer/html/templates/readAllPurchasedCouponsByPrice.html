@@ -1,0 +1,64 @@
+﻿<img src="images/Cstmr5ReadAllPurchasedCouponsByPrice.png" class="img">
+<br />
+<div id="readCouponsByPrice">
+	<form name="myForm">
+		<input name="myInput" class="w3-input w3-border w3-round" type="number" min="1" id="priceInput" ng-change="rapcp.givePrice()" ng-model="rapcp.price" required />
+	</form>
+	<p ng-hide="myForm.myInput.$valid" >
+		<font face="Trocchi" class="enter" >Please enter the coupon price</font>
+	</p>
+</div>
+<div class="tableDesign">
+<table border=1  class="table table-hover">
+    <tr>
+        <th ng-click="rapcp.setOrder('id')">
+            Id
+            <span ng-hide="rapcp.goUp">▼</span>
+            <span ng-show="rapcp.goUp">▲</span>
+        </th>
+        <th ng-click="rapcp.setOrder('title')">
+            Title
+            <span ng-hide="rapcp.goUp">▼</span>
+            <span ng-show="rapcp.goUp">▲</span>
+        </th>
+        <th ng-click="rapcp.setOrder('startDate')">
+            Start Date
+            <span ng-hide="rapcp.goUp">▼</span>
+            <span ng-show="rapcp.goUp">▲</span>
+        </th>
+        <th ng-click="rapcp.setOrder('endDate')">
+            End Date
+            <span ng-hide="rapcp.goUp">▼</span>
+            <span ng-show="rapcp.goUp">▲</span>
+        </th>
+        <th ng-click="rapcp.setOrder('amount')">
+            Amount
+            <span ng-hide="rapcp.goUp">▼</span>
+            <span ng-show="rapcp.goUp">▲</span>
+        </th>
+        <th ng-click="rapcp.setOrder('type')">
+            Type
+            <span ng-hide="rapcp.goUp">▼</span>
+            <span ng-show="rapcp.goUp">▲</span>
+        </th>
+        <th>Message</th>
+        <th ng-click="rapcp.setOrder('price')">
+            Price
+            <span ng-hide="rapcp.goUp">▼</span>
+            <span ng-show="rapcp.goUp">▲</span>
+        </th>
+        <th>Image</th>
+    </tr>
+	<tr ng-repeat="c in rapcp.couponsPrice | orderBy : rapcp.order : rapcp.goUp">
+		<td>{{c.id}}</td>
+		<td>{{c.title}}</td>
+		<td>{{c.startDate}}</td>
+		<td>{{c.endDate}}</td>
+		<td>{{c.amount}}</td>
+		<td>{{c.type}}</td>
+		<td>{{c.message}}</td>
+		<td>{{c.price}}</td>
+		<td><img data-ng-src="{{c.image}}" width="150px" height="120px"/></td>
+	</tr>
+</table>
+</div>

@@ -1,0 +1,20 @@
+﻿<img src="images/Admn8ReadAllCustomers.png" class="img">
+<br />
+<table border=1  class="table table-hover tableDesign">
+	<tr>
+		<th ng-click="racu.setOrder('id')">Id
+            <span ng-hide="racu.goUp">▼</span>
+            <span ng-show="racu.goUp">▲</span>
+        </th>
+		<th ng-click="racu.setOrder('custName')">Name
+            <span ng-hide="racu.goUp">▼</span>
+            <span ng-show="racu.goUp">▲</span>
+        </th>
+		<th>Password</th>
+	</tr>
+	<tr ng-repeat="c in racu.customers  | orderBy : racu.order : racu.goUp">
+		<td>{{c.id}}</td>
+		<td>{{c.custName}}</td>
+		<td>{{c.password}}</td>
+	</tr>
+</table>

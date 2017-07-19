@@ -1,0 +1,42 @@
+<img src="images/Cmpn3ReadCoupon.png" class="img">
+<br />
+<div id="readCoupon">
+	<form name="myForm">
+		   <select  ng-model="selectedItem" class="w3-input w3-border w3-round numInput" id="numInputCoup" ng-options="item as item.id for item in rcp.coupons" 
+     ng-change="rcp.giveId(selectedItem.id)" name="myInput" required></select> 
+	</form>
+	<p ng-hide="myForm.myInput.$valid" >
+		<font face="Trocchi" class="enterId">Please enter the coupon id</font>
+	</p>
+</div>
+<table border=1  class="table table-hover tableDesign">
+	<tr>
+		<th>Id</th>
+		<th>Title</th>
+		<th>Start Date</th>
+		<th>End Date</th>
+		<th>Amount</th>
+		<th>Type</th>
+		<th>Message</th>
+		<th>Price</th>
+		<th>Image</th>
+	</tr>
+	<tr>
+		<td>{{rcp.coupon.id}}</td>
+		<td>{{rcp.coupon.title}}</td>
+		<td>{{rcp.coupon.startDate}}</td>
+		<td>{{rcp.coupon.endDate}}</td>
+		<td>{{rcp.coupon.amount}}</td>
+		<td>{{rcp.coupon.type}}</td>
+		<td>{{rcp.coupon.message}}</td>
+		<td>{{rcp.coupon.price}}</td>
+		<td><img data-ng-src="{{rcp.coupon.image}}" width="150px" height="120px"/></td>
+
+	
+	</tr>
+</table>
+<div ng-show="rcp.failure" class="sh-error-alert">
+	<div class="popup-content">
+		<div class="popup-text"><b>&#9888; Error:  </b>{{rcp.error}}</div>
+	</div>
+</div>

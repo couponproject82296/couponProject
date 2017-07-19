@@ -1,0 +1,30 @@
+<img src="images/Admn2ReadCompany.png" class="img">
+<br />
+<div id="readComp" >
+	<form name="myForm">
+   <select  ng-model="selectedItem" class="w3-input w3-border w3-round numInput" ng-options="item as item.id for item in rc.companies" 
+   id="numInputComp"  ng-change="rc.giveId(selectedItem.id)" required></select> 
+	</form>
+	<p ng-hide="myForm.myInput.$valid"><br><br>
+		<font face="Trocchi" class="enterId">Please enter the company id</font>
+	</p>
+</div>
+<table border=1 class="table table-hover tableDesign">
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Password</th>
+		<th>Email</th>
+	</tr>
+	<tr>
+		<td>{{rc.company.id}}</td>
+		<td>{{rc.company.compName}}</td>
+		<td>{{rc.company.password}}</td>
+		<td>{{rc.company.email}}</td>
+	</tr>
+</table>
+<div ng-show="rc.failure" class="sh-error-alert">
+	<div class="popup-content">
+		<div class="popup-text"><b>&#9888; Error:  </b>{{rc.error}}</div>
+	</div>
+</div>

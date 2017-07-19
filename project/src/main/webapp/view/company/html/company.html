@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<script src="../scripts/jquery-3.2.1.min.js"></script>
+	<script src="../scripts/bootstrap.min.js"></script>
+	<link href="../css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../css/bootstrap-responsive.min.css" rel="stylesheet" />
+	<link href="../css/bootstrap-reboot.min.css" rel="stylesheet" />
+	<link href="../css/bootstrap-grid.min.css" rel="stylesheet" />
+	<link href="../css/ngAnimate.css" rel="stylesheet" /> 
+	<link href="../css/dragNdrop.css" rel="stylesheet" /> 
+	<link href="../css/exceptionMessage.css" rel="stylesheet" />
+	<link href="../css/company.css" rel="stylesheet" /> 
+	<script src="../scripts/angular.js"></script>
+	<script src="../scripts/angular-animate.min.js"></script>
+	<script src="../scripts/angular-ui-router.js"></script>
+	<link href="../css/angular-confirm.min.css" rel="stylesheet" />
+	<script src="../scripts/angular-confirm.min.js"></script>
+	<script src="../scripts/bootstrap.js"></script>
+	<link href="../css/image_editor.css" rel="stylesheet" />
+	<script src="../scripts/services/mainCompany.srvc.js"></script>
+	<script src="../scripts/services/javaBeansCtors.srvc.js"></script>
+	<script src="../scripts/companyRoute.config.js"></script>
+	<script src="../scripts/controllers/createCoupon.ctrl.js"></script>
+	<script src="../scripts/controllers/readCompany.ctrl.js"></script>
+	<script src="../scripts/controllers/readCoupon.ctrl.js"></script>
+	<script src="../scripts/controllers/readAllCoupons.ctrl.js"></script>
+	<script src="../scripts/controllers/readAllCouponsByType.ctrl.js"></script>
+	<script src="../scripts/controllers/readAllCouponsByPrice.ctrl.js"></script>
+	<script src="../scripts/controllers/readAllCouponsByDate.ctrl.js"></script>
+	<script src="../scripts/controllers/updateCoupon.ctrl.js"></script>
+	<script src="../scripts/controllers/deleteCoupon.ctrl.js"></script>
+	<title>Xcoupon</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body ng-controller="ReadCompanyCtrl as rc">
+	<div class="w3-sidebar w3-black w3-bar-block" style="width: 17%">
+		<img src="images/logo.jpg" class="w3-round" alt="logo" style="margin-top: 5%; margin-left: 10%">
+		<h3 class="w3-bar-item">Menu</h3>
+		<a href="#/createCoupon" class="w3-bar-item w3-button">Create Coupon</a>
+		<a href="#/readCompany" class="w3-bar-item w3-button">Read Company</a>
+		<a href="#/readCoupon" class="w3-bar-item w3-button">Read Coupon</a>
+		<a href="#/readAllCoupons" class="w3-bar-item w3-button">Read All Coupons</a>
+		<a href="#/readAllCouponsByType" class="w3-bar-item w3-button">Read All Coupons By Type</a>
+		<a href="#/readAllCouponsByPrice" class="w3-bar-item w3-button">Read All Coupons By Price</a>
+		<a href="#/readAllCouponsByDate" class="w3-bar-item w3-button">Read All Coupons By Date</a>
+		<a href="#/updateCoupon" class="w3-bar-item w3-button">Update Coupon</a>
+		<a href="#/deleteCoupon" class="w3-bar-item w3-button">Delete Coupon</a>
+		<a href="http://localhost:8080/project/LogoutServlet" class="w3-bar-item w3-button">Switch user/Logout</a>
+	</div>
+	<div style="margin-left: 17%">
+		<div class="w3-container w3-black">
+			<h1 >Welcome <b id="companyName">{{rc.company.compName}} </b> </h1>
+		</div>
+		<main ui-view></main>
+	</div>
+</body>
+</html>

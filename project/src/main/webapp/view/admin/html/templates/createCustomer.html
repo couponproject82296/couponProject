@@ -1,0 +1,31 @@
+<img src="images/Admn6CreateCustomer.png" class="img">
+<br />
+<h3 class="marginLeft2">Enter customer details</h3>
+<form name="myForm">
+	<p class="marginLeft2">
+		<input  type="hidden" ng-model="ccu.newCustomer.id" ng-init="ccu.newCustomer.id ='0'">
+	</p>
+	<p class="marginLeft2">
+		Name: <input name="custName" type="text" ng-model="ccu.newCustomer.custName" placeholder="Customer Name" required>
+		<span class="colorRed" ng-show="myForm.custName.$touched && myForm.custName.$invalid">Customer name is required</span>
+	</p>
+	<p class="marginLeft2">
+		Password: <input ng-pattern="passwordRegExp" name="password" type="password" ng-model="ccu.newCustomer.password" placeholder="Customer password" required>
+		<span class="colorRed" ng-show="myForm.password.$touched && myForm.password.$invalid">Customer password is required</span>
+	</p>
+	<input type="button" class="btn btn-primary marginLeft4" value="Submit" ng-click="ccu.createCustomer()"
+		ng-disabled="(myForm.custName.$pristine || myForm.custName.$invalid) || (myForm.password.$pristine  || myForm.password.$invalid) ">
+	<br />
+	<br />
+</form>
+<p ng-show="ccu.success" >
+	<font face="Trocchi" class="success">Customer successfully created!</font>
+</p>
+<p ng-show="ccu.failure" >
+	<font face="Trocchi" class="failure">Customer was NOT created!</font>
+</p>
+<div ng-show="ccu.failure" class="sh-error-alert">
+	<div class="popup-content">
+		<div class="popup-text"><b>&#9888; Error:  </b>{{ccu.error}}</div>
+	</div>
+</div>

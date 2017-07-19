@@ -1,0 +1,52 @@
+<img src="images/Admn1CreateCompany.png" class="img">
+<br />
+<h3 class="marginLeft2">Enter company details</h3>
+<form name="myForm">
+	<p class="marginLeft2">
+		<input name="id" type="hidden" ng-model="cc.newCompany.id"
+			ng-init="cc.newCompany.id ='0'">
+	</p>
+	<p class="marginLeft2">
+		Name: <input name="compName" type="text"
+			ng-model="cc.newCompany.compName" placeholder="Company Name" required>
+		<span class="colorRed"
+			ng-show="myForm.compName.$touched && myForm.compName.$invalid">Company
+			name is required</span>
+	</p>
+	<p class="marginLeft2">
+		Password: <input ng-pattern="passwordRegExp" name="password" type="password"
+			ng-model="cc.newCompany.password" placeholder="Company password"
+			required> <span class="colorRed"
+			ng-show="myForm.password.$touched && myForm.password.$invalid">Company
+			password is required</span>
+	</p>
+	<p class="marginLeft2">
+		Email: <input ng-pattern="emailRegExp" type="email" name="email" ng-model="cc.newCompany.email"
+			placeholder="Company email" required> 
+
+			<span class="colorRed"
+			ng-show="myForm.email.$error.email">Not a valid e-mail address</span>
+		<span class="colorRed"
+			ng-show="myForm.email.$touched && myForm.email.$invalid && !myForm.email.$error.email">Company
+			email is required</span>
+	</p>
+	<input type="button" class="btn btn-primary marginLeft4" value="Submit"
+		ng-click="cc.createCompany()"
+		ng-disabled="(myForm.compName.$pristine || !myForm.compName.$valid)
+		|| (myForm.password.$pristine || !myForm.password.$valid)  ||  (myForm.email.$pristine || !myForm.email.$valid)  ">
+	<br /> <br />
+</form>
+<p ng-show="cc.success">
+	<font face="Trocchi" class="success">Company successfully
+		created!</font>
+</p>
+<p ng-show="cc.failure">
+	<font face="Trocchi" class="failure">Company was NOT created!</font>
+</p>
+<div ng-show="cc.failure" class="sh-error-alert">
+	<div class="popup-content">
+		<div class="popup-text">
+			<b>&#9888; Error: </b>{{cc.error}}
+		</div>
+	</div>
+</div>

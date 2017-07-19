@@ -1,0 +1,23 @@
+﻿<img src="images/Admn10DeleteCustomer.png" class="img">
+<br />
+<form>
+    <table border=1  class="table table-hover tableDesign">
+        <tr>
+            <th ng-click="dcu.setOrder('id')">Id
+                <span ng-hide="dcu.goUp">▼</span>
+                <span ng-show="dcu.goUp">▲</span>
+            </th>
+            <th ng-click="dcu.setOrder('custName')">Name
+                <span ng-hide="dcu.goUp">▼</span>
+                <span ng-show="dcu.goUp">▲</span>
+            </th>
+            <th>Password</th>
+        </tr>
+        <tr ng-repeat="c in dcu.customers  | orderBy : dcu.order : dcu.goUp">
+            <td>{{c.id}}</td>
+            <td>{{c.custName}}</td>
+            <td>{{c.password}}</td>
+            <td><button ng-click="dcu.giveIdForDeletion($index)" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </table>
+</form>

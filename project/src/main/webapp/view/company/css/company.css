@@ -1,0 +1,67 @@
+.img{
+    margin-left: 2%;
+    margin-top: 1%;
+    border-radius: 16px;
+    width: auto;
+    height: auto;
+}
+.marginLeft1_5{
+    margin-left: 1.5%;
+}
+.marginLeft2{
+    margin-left: 2%;
+}
+.marginLeft3{
+    margin-left: 3%;
+}
+.marginLeft4{
+    margin-left: 4%;
+}
+.colorRed{
+    color: red;
+}
+.failure{
+	font-size: 20px;
+	color: red;
+	margin-left: 3%;
+}
+.success , .enterId{
+	font-size: 20px;
+	color: green;
+	margin-left: 3%;
+}
+.tableDesign{
+	margin-left: 1%;
+	width: auto;
+	margin-top: 10%;
+	overflow-x:scroll
+}
+
+#readCouponsByType, #readCouponsByPrice, #readCouponsByType, #readCoupon {
+	overflow: hidden;
+	padding-right: .5em;
+}
+
+#priceInput, #numInputCoup {
+	width: 9%;
+	margin-top: 3%;
+	margin-left: 4%;
+}
+#dateInput {
+	width: 15%;
+	margin-top: 3%;
+	margin-left: 4%;
+}
+#typeInput{
+	width: 17%;
+	margin-top: 3%;
+	margin-left: 4%;
+}
+
+#companyName{
+	color: #7FDBFF;
+}
+.marginleft1 {
+	margin-left:20%;
+}
+

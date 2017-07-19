@@ -1,0 +1,51 @@
+.img{
+    margin-left: 2%;
+    margin-top: 1%;
+    border-radius: 16px;
+    width: auto;
+    height: auto;
+}
+.marginLeft2{
+    margin-left: 2%;
+}
+.marginLeft3{
+    margin-left: 3%;
+}
+.marginLeft4{
+    margin-left: 4%;
+}
+.colorRed{
+    color: red;
+}
+.failure{
+	font-size: 20px;
+	color: red;
+	margin-left: 3%;
+}
+.success{
+	font-size: 20px;
+	color: green;
+	margin-left: 3%;
+}
+.tableDesign{
+	margin-left: 1%;
+	margin-left: 5%;
+	width: auto;
+	margin-top: 10%;
+}
+
+#readComp, #readCust {
+	overflow: hidden;
+	padding-right: .5em;
+}
+
+#numInputComp ,#numInputCust {
+	width: 9%;
+	margin-top: 3%;
+	margin-left: 4%;
+}
+.enterId{
+	font-size: 20px;
+	color: green;
+	margin-left: 3%;
+}

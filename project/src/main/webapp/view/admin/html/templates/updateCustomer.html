@@ -1,0 +1,37 @@
+﻿<img src="images/Admn9UpdateCustomer.png" class="img">
+<br />
+<form id="my_form">
+	<table border=1  class="table table-hover tableDesign">
+		<tr>
+			<th ng-click="ucu.setOrder('id')">Id
+                <span ng-hide="ucu.goUp">▼</span>
+                <span ng-show="ucu.goUp">▲</span> 
+            </th>
+			<th ng-click="ucu.setOrder('custName')">Name
+                <span ng-hide="ucu.goUp">▼</span>
+                <span ng-show="ucu.goUp">▲</span>
+            </th>
+			<th>Password</th>
+		</tr>
+		<tr ng-repeat="c in ucu.customers | orderBy : ucu.order : ucu.goUp">
+			<td ng-disabled="editing">{{c.id}}</td>
+			<td ng-disabled="editing">{{c.custName}}</td>
+			<td ng-disabled="editing">
+				<span ng-hide="c.edit">{{c.password}}</span>
+				<span><input ng-class="{'card-outline-danger': !c.password  }" ng-show="c.edit" form="my_form" type="text" ng-model="c.password" /></span>
+			</td>
+			<td ng-disabled="editing">
+				<button ng-hide="c.edit" form="my_form" data-ng-disabled="editing" class="btn btn-warning" ng-click="editEntry(c);c.edit = !c.edit">Edit</button>
+				<button ng-show="c.edit" form="my_form" class="btn btn-success"   data-ng-click="ucu.refreshAfterCanceling();editEntry(c);c.edit = !c.edit; editing?!editing:false">Cancel</button>
+				<button ng-show="c.edit" form="my_form" class="btn btn-info" data-ng-click="editEntry(c);ucu.pressUpdateToSave($index); c.edit = !c.edit; editing?!editing:false"
+				ng-disabled="!c.password">Update</button>
+			
+			</td>
+		</tr>
+	</table>
+</form>
+<div ng-show="ucu.failure" class="sh-error-alert">
+	<div class="popup-content">
+		<div class="popup-text"><b>&#9888; Error:  </b>{{ucu.error}}</div>
+	</div>
+</div>

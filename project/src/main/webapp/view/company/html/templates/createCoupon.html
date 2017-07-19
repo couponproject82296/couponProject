@@ -1,0 +1,120 @@
+<img data-tilt src="images/Cmpn1CreateCoupon.png" class="img" id="edit_image">
+<br />
+<h3 class="marginLeft2">Enter coupon details</h3>
+<form name="myForm">
+	<p class="marginLeft2">
+		<input type="hidden" ng-model="cc.newCoupon.id" ng-init="cc.newCoupon.id ='0'">
+	</p>
+	<p class="marginLeft2">
+		Title: <input name="title" type="text" ng-model="cc.newCoupon.title" placeholder="Coupon Title" required>
+		<span class="colorRed" ng-show="myForm.title.$touched && myForm.title.$invalid">Coupon title is required</span>
+	</p>
+	<p class="marginLeft2">
+		Start Date: <input ng-change='cc.checkErr(cc.newCoupon.startDate,cc.newCoupon.endDate)' id="startDate" name="startDate" type="date" 
+		 ng-model="cc.newCoupon.startDate" min="{{cc.tomorrow | date:'yyyy-MM-dd'}}" placeholder="Coupon Start Date" required>
+		<span class="colorRed" ng-show="myForm.startDate.$touched && myForm.startDate.$invalid">Coupon start date is required</span>
+	</p>
+	<p class="marginLeft2">
+		End Date: <input ng-change='cc.checkErr(cc.newCoupon.startDate,cc.newCoupon.endDate)' id="endDate" name="endDate" type="date"
+		 ng-model="cc.newCoupon.endDate" min="{{cc.newCoupon.startDate | date:'yyyy-MM-dd'}}" placeholder="Coupon End Date" required>
+	<span class="colorRed">{{cc.errMessage}}</span><br>
+	<span class="text-warning">{{cc.errMessage2}}</span>
+	</p>
+	<p class="marginLeft2">
+		Amount: <input name="amount" type="number" min="1" ng-model="cc.newCoupon.amount" class="marginLeft1_5" placeholder="Coupon Amount" required>
+		<span class="colorRed" ng-show="myForm.amount.$touched && myForm.amount.$invalid">Coupon amount is required</span>
+	</p>
+	<p class="marginLeft2">
+		Type: <select name="type" type="text" ng-model="cc.newCoupon.type" class="marginLeft1_5" placeholder="Coupon Type" required>
+			<option>ART</option>
+			<option>BABY_SUPPLY</option>
+			<option>BEVERAGES</option>
+			<option>BIKES</option>
+			<option>BOOKS</option>
+			<option>CAMPING</option>
+			<option>CARS</option>
+			<option>CHILD_ACTIVITIES</option>
+			<option>CLOTHS</option>
+			<option>ELECTRICITY</option>
+			<option>ELECTRONICS</option>
+			<option>ENTERTAINMENT</option>
+			<option>FOOD</option>
+			<option>FURNITURE</option>
+			<option>HEALTH</option>
+			<option>HOMEWARE</option>
+			<option>HOTELS</option>
+			<option>JEWELRY</option>
+			<option>MAKEUP</option>
+			<option>MUSEUMS</option>
+			<option>MUSIC</option>
+			<option>NATURE</option>
+			<option>PHARMACEUTICALS</option>
+			<option>RESTAURANTS</option>
+			<option>SHOES</option>
+			<option>SPORTS</option>
+			<option>TECHNOLOGY</option>
+			<option>THEATRE</option>
+			<option>TRAVELING</option>
+		</select>
+		<span class="colorRed" ng-show="myForm.type.$touched && myForm.type.$invalid">Coupon type is required</span>
+	</p>
+	<p class="marginLeft2">
+		Message: <input name="message" type="text" ng-model="cc.newCoupon.message" class="marginLeft1_5" placeholder="Coupon Message" required>
+		<span class="colorRed" ng-show="myForm.message.$touched && myForm.message.$invalid">Coupon message is required</span>
+	</p>
+	<p class="marginLeft2">
+		Price: <input name="price" type="number" min="1" ng-model="cc.newCoupon.price" class="marginLeft1_5" placeholder="Coupon Price" required>
+		<span class="colorRed" ng-show="myForm.price.$touched && myForm.price.$invalid">Coupon price is required</span>
+	</p>
+	<p class="marginLeft2" >
+  <div ng-show="!img" accept="image/*" class="dropzone marginLeft1_5" id="dropzone" name="image"  ng-model="cc.newCoupon.image" ng-click='click()' required>Drop or press to upload an image  
+  </div> 
+    <img ng-hide="!img" data-ng-src="{{img}}"  class="imgafterdrop marginLeft1_5" required/>  
+	<span class="colorRed" ng-show="myForm.image.$touched && myForm.image.$invalid">Coupon image is required</span>  
+	</p>
+	<input type="button" class="btn btn-primary marginLeft4" value="Submit"  ng-click="cc.createCoupon()"
+		ng-disabled="(myForm.title.$pristine || myForm.title.$invalid)
+		|| (myForm.startDate.$pristine || myForm.startDate.$invalid) || (myForm.endDate.$pristine || myForm.endDate.$invalid)
+		|| (myForm.amount.$pristine || myForm.amount.$invalid) || (myForm.type.$pristine || myForm.type.$invalid) || (myForm.message.$pristine || myForm.message.$invalid)
+		|| (myForm.price.$pristine || myForm.price.$invalid) || !img ">
+	<br />
+	<br />
+</form>
+<p ng-show="cc.success" >
+	<font face="Trocchi" class="success">Coupon successfully created!</font>
+</p>
+<p ng-show="cc.failure" >
+	<font face="Trocchi" class="failure">Coupon was NOT created!</font>
+</p>
+<div ng-show="cc.failure" class="sh-error-alert">
+	<div class="popup-content">
+		<div class="popup-text"><b>&#9888; Error:  </b>{{cc.error}}</div>
+	</div>
+</div>
+<div class="marginleft1">
+<span class="text-primary">If you wish to use Google vision web Api,
+ please insert a Detection category prior to image loading:</span>
+  <form id="fileform">
+    <select name="type" ng-model="selectedvalue" ng-change="message(selectedvalue)" >
+      <option value="LANDMARK_DETECTION">LANDMARK_DETECTION</option>
+      <option value="TYPE_UNSPECIFIED">TYPE_UNSPECIFIED</option>
+      <option value="FACE_DETECTION">FACE_DETECTION</option>
+      <option value="LOGO_DETECTION">LOGO_DETECTION</option>
+      <option value="LABEL_DETECTION">LABEL_DETECTION</option>
+      <option value="TEXT_DETECTION">TEXT_DETECTION</option>
+      <option value="SAFE_SEARCH_DETECTION">SAFE_SEARCH_DETECTION</option>
+      <option value="IMAGE_PROPERTIES">IMAGE_PROPERTIES</option>
+    </select><br />
+    <span class="text-info" ng-show="detectionMessage">{{detectionMessage}}</span>  
+  </form>
+<span class="marginleft1">
+  <code style="white-space:pre" id="results"></code>
+</span>
+</div>
+
+
+
+
+
+    
+    

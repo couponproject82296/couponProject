@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link href="../css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="../css/style.css" rel="stylesheet" />
+<script src="../scripts/angular.js"></script>
+<script src="../scripts/bootstrap.js"></script>
+<script src="../scripts/customDirective.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Raleway:300,200'
+	rel='stylesheet'>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+	rel="stylesheet">
+<script type="text/javascript">
+	function ReadCookies() {
+		var allCookies = document.cookie;
+		if (allCookies != "") {
+			var containsName = allCookies.includes("nameOrId");
+			var containsPass = allCookies.includes("password");
+			var containsType = allCookies.includes("clientType");
+			if (containsName && containsPass && containsType)
+				window.location
+						.replace("http://localhost:8080/project/LoginServlet");
+		}
+	}
+</script>
+<title>Xcoupon</title>
+</head>
+
+<body ng-controller="couponImagesCtrl" onload="ReadCookies()">
+
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</ol>
+
+		<!-- Slides -->
+
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<!-- custom directive with two way binding isolated scope -->
+				<yl-coupons-images mycoupons="mycoupons"></yl-coupons-images>
+			</div>
+
+			<div class="item">
+				<!-- custom directive with two way binding isolated scope -->
+				<yl-coupons-images mycoupons="mycoupons"></yl-coupons-images>
+
+			</div>
+
+			<div class="item">
+				<!-- custom directive with two way binding isolated scope -->
+				<yl-coupons-images mycoupons="mycoupons"></yl-coupons-images>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Controls -->
+	<a class="left carousel-control" href="#myCarousel" role="button"
+		data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
+		aria-hidden="true"></span> <span class="sr-only"></span>
+	</a>
+	<a class="right carousel-control" href="#myCarousel" role="button"
+		data-slide="next"> <span class="glyphicon glyphicon-chevron-right"
+		aria-hidden="true"></span> <span class="sr-only"></span>
+	</a>
+	</div>
+
+	<!-- Login form -->
+
+	<div class="form">
+		<div class="forceColor"></div>
+		<div class="topbar">
+			<div class="spanColor"></div>
+			<form name="myForm"
+				action="http://localhost:8080/project/LoginServlet" method="POST">
+				<p>
+					<input class="input" name="nameOrId" type="text"
+						placeholder="Username/Id" required>
+				</p>
+				<br>
+				<p>
+					<input class="input" name="password" type="password"
+						placeholder="Password" required>
+				</p>
+				<br>
+				<p>
+					<select class="input form-control" name="clientType" required>
+						<option>ADMIN</option>
+						<option>COMPANY</option>
+						<option>CUSTOMER</option>
+					</select>
+				</p>
+				<button type="submit" class="submit">Login</button>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>

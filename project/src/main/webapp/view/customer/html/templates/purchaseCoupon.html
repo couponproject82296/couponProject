@@ -1,0 +1,62 @@
+﻿<img src="images/Cstmr1PurchaseCoupon.png" class="img">
+<br />
+<div class="tableDesign">
+<form id="my_form">
+	<table border=1  class="table table-hover">
+        <tr>
+            <th ng-click="pc.setOrder('id')">
+                Id
+                <span ng-hide="pc.goUp">▼</span>
+                <span ng-show="pc.goUp">▲</span>
+            </th>
+            <th ng-click="pc.setOrder('title')">
+                Title
+                <span ng-hide="pc.goUp">▼</span>
+                <span ng-show="pc.goUp">▲</span>
+            </th>
+            <th ng-click="pc.setOrder('startDate')">
+                Start Date
+                <span ng-hide="pc.goUp">▼</span>
+                <span ng-show="pc.goUp">▲</span>
+            </th>
+            <th ng-click="pc.setOrder('endDate')">
+                End Date
+                <span ng-hide="pc.goUp">▼</span>
+                <span ng-show="pc.goUp">▲</span>
+            </th>
+            <th ng-click="pc.setOrder('amount')">
+                Amount
+                <span ng-hide="pc.goUp">▼</span>
+                <span ng-show="pc.goUp">▲</span>
+            </th>
+            <th ng-click="pc.setOrder('type')">
+                Type
+                <span ng-hide="pc.goUp">▼</span>
+                <span ng-show="pc.goUp">▲</span>
+            </th>
+            <th>Message</th>
+            <th ng-click="pc.setOrder('price')">
+                Price
+                <span ng-hide="pc.goUp">▼</span>
+                <span ng-show="pc.goUp">▲</span>
+            </th>
+            <th>Image</th>
+        </tr>
+		<tr ng-repeat="c in pc.coupons  | orderBy : pc.order : pc.goUp ">
+			<td>{{c.id}}</td>
+			<td>{{c.title}}</td>
+			<td>{{c.startDate}}</td>
+			<td>{{c.endDate}}</td>
+			<td>{{c.amount}}</td>
+			<td>{{c.type}}</td>
+			<td>{{c.message}}</td>
+			<td>{{c.price}}</td>
+			<td><img data-ng-src="{{c.image}}" width="150px" height="120px"/></td>
+			
+			<td>
+				<button class="btn btn-success" ng-click="pc.buyMe($index)">Purchase</button>
+			</td>
+		</tr>
+	</table>
+</form>
+</div>

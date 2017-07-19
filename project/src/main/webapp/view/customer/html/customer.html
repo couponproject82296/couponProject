@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <script src="../scripts/jquery-3.2.1.min.js"></script>
+	<script src="../scripts/bootstrap.min.js"></script>
+	<link href="../css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../css/bootstrap-responsive.min.css" rel="stylesheet" />
+	<link href="../css/bootstrap-reboot.min.css" rel="stylesheet" />
+    <link href="../css/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="../css/ngAnimate.css" rel="stylesheet" /> 
+    <link href="../css/customer.css" rel="stylesheet" /> 
+	<script src="../scripts/angular.js"></script>
+	<script src="../scripts/html5RotatingVideo.js"></script>	
+	<script src="../scripts/angular-animate.min.js"></script>
+	<script src="../scripts/angular-ui-router.js"></script>
+	<script src="../scripts/bootstrap.js"></script>
+	<script src="../scripts/services/mainCustomer.srvc.js"></script>
+	<script src="../scripts/customerRoute.config.js"></script>
+	<script src="../scripts/controllers/purchaseCoupon.ctrl.js"></script> 
+	 <script src="../scripts/controllers/readCustomer.ctrl.js"></script> 
+	<script src="../scripts/controllers/readAllPurchasedCoupons.ctrl.js"></script>
+	<script src="../scripts/controllers/readAllPurchasedCouponsByType.ctrl.js"></script>  
+	<script src="../scripts/controllers/readAllPurchasedCouponsByPrice.ctrl.js"></script>
+	<title>Xcoupon</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body ng-controller="ReadCustomerCtrl as rc" onload="init()"  style="margin:0px">
+
+
+
+	<div class="w3-sidebar w3-black w3-bar-block" style="width:17%" >
+		<img src="images/logo.jpg" class="w3-round" alt="logo" style="margin-top:5%; margin-left:10%">
+		<h3 class="w3-bar-item">Menu</h3>
+		<a href="#/purchaseCoupon" class="w3-bar-item w3-button">Purchase Coupon</a> 
+		<a href="#/readCustomer" class="w3-bar-item w3-button">Read Customer</a>
+		<a href="#/readAllPurchasedCoupons" class="w3-bar-item w3-button">Read All Purchased Coupons</a>
+		<a href="#/readAllPurchasedCouponsByType" class="w3-bar-item w3-button">Read All Purchased Coupons By Type</a>
+		<a href="#/readAllPurchasedCouponsByPrice" class="w3-bar-item w3-button">Read All Purchased Coupons By Price</a>
+		<a href="http://localhost:8080/project/LogoutServlet" class="w3-bar-item w3-button">Switch user/Logout</a>
+	</div>
+	
+	<div style="margin-left:17%">
+		<div class="w3-container w3-black">
+  		<h1>Welcome <b id="customerName">{{rc.customer.custName}} </b></h1>
+		
+		</div>
+	
+		<span style="display:none" >
+		<video id="sourcevid" autoplay="false" loop="false" controls  >
+			<source src="videos/couponsVideo.mp4" type="video/mp4" />
+		</video>
+		<canvas id="sourcecopy" width="320" height="192" ></canvas>
+	   
+	   </span> 
+	<span id="trace"></span>
+	<span class="myvideo"  onclick="pressToPause()" ondblclick="pressToStart()">
+		<canvas id="output" width="700" height="500"></canvas>
+	</span>
+	
+		
+	<main ui-view></main>
+	</div>
+</body>
+</html>

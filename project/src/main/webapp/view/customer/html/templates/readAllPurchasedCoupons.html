@@ -1,0 +1,58 @@
+﻿<img src="images/Cstmr3ReadAllPurchasedCoupons.png" class="img">
+<br />
+<div class="tableDesign">
+<form id="my_form">
+	<table border=1  class="table table-hover">
+        <tr>
+            <th ng-click="rapc.setOrder('id')">
+                Id
+                <span ng-hide="rapc.goUp">▼</span>
+                <span ng-show="rapc.goUp">▲</span>
+            </th>
+            <th ng-click="rapc.setOrder('title')">
+                Title
+                <span ng-hide="rapc.goUp">▼</span>
+                <span ng-show="rapc.goUp">▲</span>
+            </th>
+            <th ng-click="rapc.setOrder('startDate')">
+                Start Date
+                <span ng-hide="rapc.goUp">▼</span>
+                <span ng-show="rapc.goUp">▲</span>
+            </th>
+            <th ng-click="rapc.setOrder('endDate')">
+                End Date
+                <span ng-hide="rapc.goUp">▼</span>
+                <span ng-show="rapc.goUp">▲</span>
+            </th>
+            <th ng-click="rapc.setOrder('amount')">
+                Amount
+                <span ng-hide="rapc.goUp">▼</span>
+                <span ng-show="rapc.goUp">▲</span>
+            </th>
+            <th ng-click="rapc.setOrder('type')">
+                Type
+                <span ng-hide="rapc.goUp">▼</span>
+                <span ng-show="rapc.goUp">▲</span>
+            </th>
+            <th>Message</th>
+            <th ng-click="rapc.setOrder('price')">
+                Price
+                <span ng-hide="rapc.goUp">▼</span>
+                <span ng-show="rapc.goUp">▲</span>
+            </th>
+            <th>Image</th>
+        </tr>
+		<tr ng-repeat="c in rapc.coupons  | orderBy : rapc.order : rapc.goUp ">
+			<td>{{c.id}}</td>
+			<td>{{c.title}}</td>
+			<td>{{c.startDate}}</td>
+			<td>{{c.endDate}}</td>
+			<td>{{c.amount}}</td>
+			<td>{{c.type}}</td>
+			<td>{{c.message}}</td>
+			<td>{{c.price}}</td>
+			<td><img data-ng-src="{{c.image}}" width="150px" height="120px"/></td>
+		</tr>
+	</table>
+</form>
+</div>

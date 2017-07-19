@@ -1,0 +1,28 @@
+﻿<img src="images/Admn5DeleteCompany.png" class="img">
+<br />
+<form id="my_form">
+    <table border=1  class="table table-hover tableDesign">
+        <tr>
+            <th ng-click="dco.setOrder('id')">Id
+                <span ng-hide="dco.goUp">▼</span>
+                <span ng-show="dco.goUp">▲</span>
+            </th>
+            <th ng-click="dco.setOrder('compName')">Name
+                <span ng-hide="dco.goUp">▼</span>
+                <span ng-show="dco.goUp">▲</span>
+            </th>
+            <th>Password</th>
+            <th ng-click="dco.setOrder('email')">Email
+                <span ng-hide="dco.goUp">▼</span>
+                <span ng-show="dco.goUp">▲</span>
+            </th>
+        </tr>
+        <tr ng-repeat="c in dco.companies  | orderBy : dco.order : dco.goUp">
+            <td>{{c.id}}</td>     
+            <td>{{c.compName}}</td>
+            <td>{{c.password}}</td>
+            <td>{{c.email}} </td>
+            <td><button ng-click="dco.giveIdForDeletion($index)" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </table>
+</form>

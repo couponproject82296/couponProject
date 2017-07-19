@@ -1,0 +1,52 @@
+/* exceptionMessage.CSS 2.00 Jun 2017 by Lior,Yael&Shlomo */
+@keyframes movement {
+    0%   {left:100%; top:0px;visibility:visible;}
+    20%  {left:70%; top:0px;visibility:visible;}
+    80%  {left:70%; top:0px;visibility:visible;}
+    100% {left:100%; top:0px;visibility:visible;}
+}
+.sh-error-alert{
+    visibility:hidden;
+    min-width: 300px;
+    width: 300px;
+    max-width:300px;
+    min-height: 100px;
+    max-height:300px;
+	box-shadow: 10px 10px 20px #888888;
+    font-size:20px;
+    animation-name: movement;
+    animation-duration: 6s;
+    opacity:0.95;
+    border: 2px solid #888888;
+   position:fixed;
+    top: 30%;
+
+    font-weight: 100;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px 0 20px 0;
+    transform-style: preserve-3d;
+    background: -webkit-linear-gradient(top left, white 50%, #ff0033 50%);   
+}
+
+.popup-content {
+    background: #444;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px 0 10px 0;
+    
+}
+.popup-text {
+	opacity:1;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.popup-text b {
+    color: coral;
+    font-weight: 300;
+}

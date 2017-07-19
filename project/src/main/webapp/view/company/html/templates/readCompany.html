@@ -1,0 +1,52 @@
+<div id="wrapper">
+<div id="edit_controls">
+ <li>GrayScale<br><input id="grayscale" class="range" type="range" min="0" max="100" value="0"></li>
+ 
+ <li>Blur<br><input id="blur" class="range" type="range" min="0" max="10" value="0"></li>
+ 
+ <li>Exposure<br><input id="exposure" class="range" type="range" min="0" max="200" value="100"></li>
+ 
+ <li>Sepia<br><input id="sepia" class="range" type="range" min="0" max="100" value="0"></li>
+ 
+ <li>Opacity<br><input id="opacity" class="range" type="range" min="0" max="100" value="100"></li>
+<div id="image_div" class="growphoto">
+<img src="images/Cmpn2ReadCompany.png" class="img" id="edit_image">
+</div>
+</div> 
+
+</div>
+<table border=1  class="table table-hover tableDesign distance" >
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Password</th>
+		<th>Email</th>
+	</tr>
+	<tr>
+		<td>{{rc.company.id}}</td>
+		<td>{{rc.company.compName}}</td>
+		<td>{{rc.company.password}}</td>
+		<td>{{rc.company.email}}</td>
+	</tr>
+</table>
+
+
+
+<!-- jquery for image editior -->
+<script>
+$(document).ready(function()
+{
+ $(".range").change(add_filter).mousemove(add_filter);
+});
+	
+function add_filter()
+{
+ var grayscale_val=$("#grayscale").val();
+ var blur_val=$("#blur").val();
+ var exposure_val=$("#exposure").val();
+ var sepia_val=$("#sepia").val();
+ var opacity_val=$("#opacity").val();
+
+ $("#edit_image").css("-webkit-filter","grayscale("+grayscale_val+"%) blur("+blur_val+"px) brightness("+exposure_val+"%) sepia("+sepia_val+"%) opacity("+opacity_val+"%)");
+}
+</script>

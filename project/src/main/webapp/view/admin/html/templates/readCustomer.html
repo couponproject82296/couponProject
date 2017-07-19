@@ -1,0 +1,28 @@
+<img src="images/Admn7ReadCustomer.png" class="img">
+<br />
+<div id="readCust">
+	<form name="myForm">
+	   <select  ng-model="selectedItem" class="w3-input w3-border w3-round numInput" id="numInputCust" ng-options="item as item.id for item in rcu.customers" 
+     ng-change="rcu.giveId(selectedItem.id)" name="myInput" required></select> 
+	</form>
+	<p ng-hide="myForm.myInput.$valid" >
+		<font face="Trocchi" class="enterId" >Please enter the customer id</font>
+	</p>
+</div>
+<table border=1  class="table table-hover tableDesign">
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Password</th>
+	</tr>
+	<tr>
+		<td>{{rcu.customer.id}}</td>
+		<td>{{rcu.customer.custName}}</td>
+		<td>{{rcu.customer.password}}</td>
+	</tr>
+</table>
+<div ng-show="rcu.failure" class="sh-error-alert">
+	<div class="popup-content">
+		<div class="popup-text"><b>&#9888; Error:  </b>{{rcu.error}}</div>
+	</div>
+</div>
